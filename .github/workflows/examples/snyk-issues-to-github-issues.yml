@@ -1,0 +1,21 @@
+name: snyk-labs action example - Snyk Issues to Github Issues
+on: push
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: snyk/actions/setup@master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Snyk monitor
+        run: snyk test
+        with:
+          args: --sarif-file-output=snyk.sarif
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - uses: /snyk-issues-to-github-actions
+        with:
+          sarif-file: snyk.sarif
+          
