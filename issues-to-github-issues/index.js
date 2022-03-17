@@ -2,9 +2,12 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 //import * as core from '@actions/core'
 //import * as github from '@actions/github'
-import * as fs from 'fs';
-import * as path from 'path';
-import * as debugLib from 'debug';
+const fs = require("fs")
+//import * as fs from 'fs';
+const path = require("path")
+//import * as path from 'path';
+const debugLib = require("debug")
+//import * as debugLib from 'debug';
 
 const debug = debugLib('snyk:load-file');
 

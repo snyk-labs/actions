@@ -9489,18 +9489,6 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -9542,26 +9530,23 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony export */ __nccwpck_require__.d(__webpack_exports__, {
 /* harmony export */   "loadFile": () => (/* binding */ loadFile)
 /* harmony export */ });
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(7147);
-/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(fs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(1017);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var debug__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7179);
-/* harmony import */ var debug__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__nccwpck_require__.n(debug__WEBPACK_IMPORTED_MODULE_2__);
 const core = __nccwpck_require__(2867);
 const github = __nccwpck_require__(2544);
 //import * as core from '@actions/core'
 //import * as github from '@actions/github'
+const fs = __nccwpck_require__(7147)
+//import * as fs from 'fs';
+const path = __nccwpck_require__(1017)
+//import * as path from 'path';
+const debugLib = __nccwpck_require__(7179)
+//import * as debugLib from 'debug';
 
-
-
-
-const debug = debug__WEBPACK_IMPORTED_MODULE_2__('snyk:load-file');
+const debug = debugLib('snyk:load-file');
 
 async function loadFile(name){
-  const filename = path__WEBPACK_IMPORTED_MODULE_1__.resolve(process.cwd(), name);
+  const filename = path.resolve(process.cwd(), name);
   try {
-    return await fs__WEBPACK_IMPORTED_MODULE_0__.readFileSync(filename, 'utf8');
+    return await fs.readFileSync(filename, 'utf8');
   } catch (error) {
     debug(error.message);
     throw new Error(`File can not be found at location: ${filename}`);
