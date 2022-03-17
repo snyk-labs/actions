@@ -29,7 +29,7 @@ async function run() {
     const sarifFile = core.getInput("sarif-file")
     const content = await loadFile(sarifFile);
 
-    const sarifFileJson = JSON.parse(content).runs.tool.driver;
+    const sarifFileJson = JSON.parse(content).runs[0].tool.driver;
 
     //load rules from SARIF
     const rules = sarifFileJson.rules
