@@ -47,7 +47,7 @@ async function run() {
         console.log(`found match rule for result: ${JSON.stringify(filtered)}`)
 
 
-        let title = filtered.shortDescription.text
+        let title = filtered[0].shortDescription.text
         let body = filtered.help.markdown
         //const assignees = core.getInput("assignees");
     
