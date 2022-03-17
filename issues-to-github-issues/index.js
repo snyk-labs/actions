@@ -34,7 +34,7 @@ async function run() {
 
     //load rules from SARIF
     const rules = sarifFileJson.runs[0].tool.driver.rules
-    const results = sarifFileJson.runs[0].tool.driver.results
+    const results = sarifFileJson.runs[0].results
 
     console.log(results)
     
