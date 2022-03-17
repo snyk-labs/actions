@@ -30,6 +30,7 @@ async function run() {
     const content = await loadFile(sarifFile);
 
     const sarifFileJson = JSON.parse(content);
+    console.log(sarifFileJson)
 
     //load rules from SARIF
     const rules = sarifFileJson.runs[0].tool.driver.rules
