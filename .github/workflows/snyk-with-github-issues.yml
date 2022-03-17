@@ -10,8 +10,7 @@ jobs:
         with:
           node-version: '16'
       - name: Snyk monitor
-        run: snyk test
-        args: --sarif-file-output=snyk.sarif
+        run: snyk test --sarif-file-output=snyk.sarif
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - uses: ./snyk-issues-to-github-issues
