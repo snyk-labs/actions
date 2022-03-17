@@ -5,6 +5,9 @@ inputs:
     description: 'sarif output file contain snyk issues'
     required: true
     default: 'snyk.sarif'
+  token: # github token for issues
+    description: 'github token for issue creation'
+    required: "true"
 #outputs:
 #  issue: # id of output
 #    description: 'The issue object as a JSON string'
