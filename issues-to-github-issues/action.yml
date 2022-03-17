@@ -9,5 +9,5 @@ inputs:
 #  issue: # id of output
 #    description: 'The issue object as a JSON string'
 runs:
-  using: 'node16'
+  using: 'node14'
   main: 'index.js'
