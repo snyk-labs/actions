@@ -13,7 +13,7 @@ jobs:
         with:
           go-version: "1.16"
       - name: Snyk monitor
-        run: snyk test --sarif-file-output=snyk.sarif
+        run: snyk test --sarif-file-output=../../../snyk.sarif
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
