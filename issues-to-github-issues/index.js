@@ -43,7 +43,7 @@ async function run() {
         let ruleId = result.ruleId
 
         // for each single issue find the rule text to create the issue
-        let filtered = rules.filter(a => a.ruleId == ruleId);
+        let filtered = rules.filter(a => a.id == ruleId);
         console.log(`found match rule for result: ${JSON.stringify(filtered)}`)
 
 
