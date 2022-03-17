@@ -9592,7 +9592,7 @@ async function run() {
         core.setOutput("issue", JSON.stringify(response.data));
     }
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed(`Error found: ${error.message}`);
   }
 }
 
