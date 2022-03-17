@@ -9,7 +9,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-        working-directory: ./snyk-issues-to-github-issues
+      - working-directory: ./snyk-issues-to-github-issues
       - name: Snyk monitor
         run: snyk test --sarif-file-output=snyk.sarif
         env:
