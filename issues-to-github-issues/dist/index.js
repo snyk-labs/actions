@@ -9576,11 +9576,11 @@ async function run() {
 
         // for each single issue find the rule text to create the issue
         let filtered = rules.filter(a => a.id == ruleId);
-        console.log(`found match rule for result: ${JSON.stringify(filtered)}`)
+        //console.log(`found match rule for result: ${JSON.stringify(filtered)}`)
 
 
         let title = filtered[0].shortDescription.text
-        let body = filtered.help.markdown
+        let body = filtered[0].help.markdown
         //const assignees = core.getInput("assignees");
     
         let response = await octokit.issues.create({
