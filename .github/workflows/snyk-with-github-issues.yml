@@ -15,7 +15,7 @@ jobs:
           args: --sarif-file-output=snyk.sarif
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      - uses: ../../snyk-issues-to-github-issues
+      - uses: /snyk-issues-to-github-issues
         with:
           sarif-file: snyk.sarif
           
