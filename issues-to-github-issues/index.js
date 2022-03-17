@@ -34,6 +34,8 @@ async function run() {
     //load rules from SARIF
     const rules = sarifFileJson.rules
     const results = sarifFileJson.results
+
+    console.log(results)
     
     for (const result of results) {
         let locationUri = result.locations[0].physicalLocation.artifactLocation.uri
