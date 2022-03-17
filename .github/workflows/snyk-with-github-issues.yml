@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: current directory
+        run: pwd; ls -lrt; ls -lrt ..
       - uses: snyk/actions/setup@master
       - name: current directory
         run: pwd; ls -lrt; ls -lrt ..
