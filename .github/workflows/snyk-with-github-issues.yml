@@ -3,18 +3,17 @@ on: push
 jobs:
   security:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: issues-to-github-issues
     steps:
       - uses: actions/checkout@v2
-      - name: current directory
-        run: pwd; ls -lrt; ls -lrt ..
       - uses: snyk/actions/setup@master
-      - name: current directory
-        run: pwd; ls -lrt; ls -lrt ..
       - name: Snyk monitor
         run: snyk test --sarif-file-output=snyk.sarif
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      - uses: ./snyk-issues-to-github-issues
+      - uses: ./issues-to-github-issues
         with:
           sarif-file: snyk.sarif
           
