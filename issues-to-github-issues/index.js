@@ -51,7 +51,7 @@ async function run() {
         let body = filtered[0].help.markdown
         //const assignees = core.getInput("assignees");
     
-        let response = await octokit.issues.create({
+        let response = await octokit.Issue.Create({
           // owner: github.context.repo.owner,
           // repo: github.context.repo.repo,
           ...github.context.repo,
