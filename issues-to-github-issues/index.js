@@ -64,6 +64,7 @@ async function run() {
     }
   } catch (error) {
     core.setFailed(`Error found: ${error.message}`);
+    throw error
   }
 }
 
