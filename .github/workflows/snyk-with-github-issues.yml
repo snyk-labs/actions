@@ -10,7 +10,7 @@ jobs:
         with:
           node-version: '16'
       - name: current directory
-        run: pwd; ls -lrt
+        run: pwd; ls -lrt; ls -lrt ..
       - name: Snyk monitor
         run: snyk test --sarif-file-output=snyk.sarif
         env:
