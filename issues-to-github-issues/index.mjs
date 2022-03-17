@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as debugLib from 'debug';
 
-const debug = debugLib('snyk:load-file');
+//const debug = debugLib('snyk:load-file');
 
 export async function loadFile(name){
   const filename = path.resolve(process.cwd(), name);
