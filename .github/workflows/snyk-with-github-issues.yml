@@ -6,9 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: snyk/actions/setup@master
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
       - name: current directory
         run: pwd; ls -lrt; ls -lrt ..
       - name: Snyk monitor
