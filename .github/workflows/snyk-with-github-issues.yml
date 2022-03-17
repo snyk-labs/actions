@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: issues-to-github-issues
+        working-directory: .github/workflows/snyk-with-github-issues
     steps:
       - uses: actions/checkout@v2
       - uses: snyk/actions/setup@master
