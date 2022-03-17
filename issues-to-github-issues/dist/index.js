@@ -9556,7 +9556,7 @@ async function loadFile(name){
 async function run() {
   try {
     const token = core.getInput("token");
-    const octokit = new github.GitHub(token);
+    const octokit = new github.getOctokit(token);
 
     const sarifFile = core.getInput("sarif-file")
     const content = await loadFile(sarifFile);
