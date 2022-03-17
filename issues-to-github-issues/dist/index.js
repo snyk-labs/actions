@@ -9562,13 +9562,13 @@ async function run() {
     const content = await loadFile(sarifFile);
 
     const sarifFileJson = JSON.parse(content);
-    console.log(sarifFileJson)
+    //console.log(sarifFileJson)
 
     //load rules from SARIF
     const rules = sarifFileJson.runs[0].tool.driver.rules
     const results = sarifFileJson.runs[0].results
 
-    console.log(results)
+    //console.log(results)
     
     for (const result of results) {
         let locationUri = result.locations[0].physicalLocation.artifactLocation.uri
@@ -9579,7 +9579,7 @@ async function run() {
         console.log(`found match rule for result: ${JSON.stringify(filtered)}`)
 
 
-        let title = filtered.shortDescription.context
+        let title = filtered.shortDescription.text
         let body = filtered.help.markdown
         //const assignees = core.getInput("assignees");
     
