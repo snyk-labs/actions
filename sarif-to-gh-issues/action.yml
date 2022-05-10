@@ -1,0 +1,23 @@
+name: "Create Github Issues from Snyk"
+description: "Create Github Issues from Snyk CLI SARIF output"
+author: "@snyk-labs/cs-engineering"
+branding:
+  icon: "copy"
+  color: "purple"
+inputs:
+  sarif_file:
+    description: "path to SARIF file generated from snyk CLI"
+    default: snyk.sarif
+  command:
+    description: "command to run: create-new-issues, close-fixed-issues, sync-issues"
+    default: sync-issues
+runs:
+  using: "docker"
+  image: docker://ghcr.io/snyk-labs/ci-scripts:latest
+  args:
+  - snyk_sarif_to_gh_issues
+  - --snyk-sarif-file=${{ inputs.sarif_file }}
+  - ${{ inputs.command }}
+  #env:
+  #  GITHUB_TOKEN: ${{ github.token }}
+  #  REPO: ${{ github.repositoryUrl }}
