@@ -1,2 +1,4 @@
-# actions
-A set of composite GitHub actions providing additional functionality on top of snyk/actions, along with example workflows.
+## Snyk Labs Github Actions
+A set of custom GitHub Actions providing additional functionality to implement Snyk in your GitHub Actions CI/CD pipeline.
+
+Example 
