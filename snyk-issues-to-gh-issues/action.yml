@@ -1,0 +1,23 @@
+name: "Create Github Issues from Snyk (SCM)"
+description: "Create Github Issues from Snyk SCM Project Issues"
+author: "@snyk-labs/cs-engineering"
+branding:
+  icon: "copy"
+  color: "purple"
+inputs:
+  snyk_prefix:
+    description: "prefix needed to map github org name to snyk slug"
+    required: false
+  command:
+    description: "command to run: create-new-issues, close-fixed-issues, sync-issues"
+    default: sync-issues
+runs:
+  using: "docker"
+  image: docker://ghcr.io/snyk-labs/ci-scripts:latest
+  args:
+  - snyk_scm_issues_to_gh_issues
+  - --snyk-prefix=${{ inputs.snyk_prefix }}
+  - ${{ inputs.command }}
+  #env:
+  #  GITHUB_TOKEN: ${{ github.token }}
+  #  REPO: ${{ github.repositoryUrl }}
