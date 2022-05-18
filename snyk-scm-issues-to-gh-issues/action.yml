@@ -9,9 +9,10 @@ inputs:
     description: "prefix needed to map github org name to snyk slug"
     required: false
     default: ""
-  options: 
-    description: "pass global options (.e.g --use-fresh-issues)"
+  use_fresh_issues: 
+    description: "when true, check that the SCM issues to process are from a recently tested project (for on 'push' to monitored branch workflow)"
     required: false
+    default: false
   command:
     description: "command to run: create-new-issues, close-fixed-issues, sync-issues"
     default: sync-issues
@@ -19,9 +20,12 @@ runs:
   using: "docker"
   image: docker://ghcr.io/snyk-labs/ci-scripts:latest
   args:
-  - ${{ inputs.options}}
-  - snyk_scm_issues_to_gh_issues
   - --snyk-prefix=${{ inputs.snyk_prefix }}
+  - snyk_scm_issues_to_gh_issues
+  if: ${{ use_fresh_issues == 'true'}}
+  - --use-fresh-issues
+  if: ${{ use_fresh_issues == 'false'}}
+  - --no-use-fresh-issues
   - ${{ inputs.command }}
   # the following should but it doesn't it a custom action
   #env:
