@@ -8,6 +8,11 @@ inputs:
   snyk_prefix:
     description: "prefix needed to map github org name to snyk slug"
     required: false
+    default: ""
+  use_fresh_issues: 
+    description: "when true, check that the SCM issues to process are from a recently tested project (for on 'push' to monitored branch workflow)"
+    required: false
+    default: false
   command:
     description: "command to run: create-new-issues, close-fixed-issues, sync-issues"
     default: sync-issues
@@ -17,7 +22,10 @@ runs:
   args:
   - snyk_scm_issues_to_gh_issues
   - --snyk-prefix=${{ inputs.snyk_prefix }}
+  - --use-fresh-issues=${{ inputs.use_fresh_issues}}
   - ${{ inputs.command }}
+  # the following should but it doesn't it a custom action
   #env:
   #  GITHUB_TOKEN: ${{ github.token }}
   #  REPO: ${{ github.repositoryUrl }}
+
