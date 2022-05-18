@@ -8,6 +8,10 @@ inputs:
   snyk_prefix:
     description: "prefix needed to map github org name to snyk slug"
     required: false
+    default: ""
+  options: 
+    description: "pass global options (.e.g --use-fresh-issues)"
+    required: false
   command:
     description: "command to run: create-new-issues, close-fixed-issues, sync-issues"
     default: sync-issues
@@ -15,9 +19,11 @@ runs:
   using: "docker"
   image: docker://ghcr.io/snyk-labs/ci-scripts:latest
   args:
+  - ${{ inputs.options}}
   - snyk_scm_issues_to_gh_issues
   - --snyk-prefix=${{ inputs.snyk_prefix }}
   - ${{ inputs.command }}
+  # the following should but it doesn't it a custom action
   #env:
   #  GITHUB_TOKEN: ${{ github.token }}
   #  REPO: ${{ github.repositoryUrl }}
