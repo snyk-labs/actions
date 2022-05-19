@@ -1,4 +1,4 @@
-## Sync Snyk SCM project issues with Github Issues
+## Synchronize Github issues with Snyk SCM project issues
 A [GitHub Action](https://github.com/features/actions) for capturing vulnerabilities detected in Snyk Open Source projects for a given 
 repository in Github.
 
@@ -19,7 +19,7 @@ The action has properties which are passed to the underlying automation. These a
 
 to achieve the most reliable syncing of GH Issues with Snyk SCM Project issues, two workflows are recommended.
 
-## workflows
+## Workflows
 **1 - On `push` event on the snyk-monitored branch (should be the repo default branch)**
 
 It's import to note the use of `use_fresh_issues` in this workflow, that will wait if needed for the webhook-triggered retest to occur at Snyk
