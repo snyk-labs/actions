@@ -19,6 +19,9 @@ The action has properties which are passed to the underlying automation. These a
 to achieve the most reliable syncing of GH Issues with Snyk test output, two workflows are recommended.
 
 ## Workflows
+The following workflows are *examples* that use both the snyk/actions as well as the snyk-labs/actions/sarif-to-gh-issues to demonstrate how to utilize this functionality 
+after generating the SARIF file output from the snyk test, and then using that output in the next step.
+
 **1 - On `push` event on the default branch**
 
 ```yaml
