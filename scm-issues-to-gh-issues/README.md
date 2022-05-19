@@ -1,11 +1,12 @@
 ## Synchronize Github issues with Snyk SCM project issues
-A [GitHub Action](https://github.com/features/actions) for capturing vulnerabilities detected in Snyk Open Source projects for a given 
-repository in Github.
+A [GitHub Action](https://github.com/features/actions) for synchronizing Github issues with issues detected in Snyk Open Source projects for a given 
+repository.
 
 Important points to be aware of:
 - Works specifically for Snyk Open Source project types, not for any others such as Snyk Container, IaC, Code, etc... 
   - You can find the projects that Snyk Open source detects via the SCM integration [here](https://docs.snyk.io/products/snyk-open-source/language-and-package-manager-support)
 - Works only with default branch in Snyk
+- Does not consider license issues, only security vulnerabilities.
 
 ## Properties
 
