@@ -56,7 +56,7 @@ are reflected even if the pipeline is not active.
 This also ensures any issues missed in the `on push` workflow are synced 
 by this workflow.
 
-Notice the absence of the `used_fresh_issues` parameter, which will use the default of `false`. 
+Notice the absence of the `use_fresh_issues` parameter, which will use the default of `false`. 
 We don't need to check that a test has just occurred, and can use whatever data is present in Snyk at the time.
 
 ```yaml
