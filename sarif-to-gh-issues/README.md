@@ -3,8 +3,8 @@ A [GitHub Action](https://github.com/features/actions) for synchronizing Github 
 
 Important points to be aware of:
 - Works specifically for Snyk Open Source project types, not for any others such as Snyk Container, IaC, Code, etc... 
-  - You can find the projects that Snyk Open source detects via the SCM integration [here](https://docs.snyk.io/products/snyk-open-source/language-and-package-manager-support)
-- Works only with default branch in Snyk (since issues are created at repo level)
+  - You can find the projects that Snyk Open source detects [here](https://docs.snyk.io/products/snyk-open-source/language-and-package-manager-support)
+- Assumes you will run against one (default) branch since issues are created at repo level
 - Does not consider license issues, only security vulnerabilities.
 
 ## Properties
